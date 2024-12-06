@@ -1,0 +1,148 @@
+.version_block {
+  grid-column-gap: .25rem;
+  grid-row-gap: .25rem;
+  background-color: #2a2a2a;
+  border: 1px solid #ffffff05;
+  border-radius: .4rem;
+  justify-content: center;
+  align-items: center;
+  padding: .35rem .6rem;
+  display: flex;
+}
+
+.dev-overlay {
+  z-index: 9999;
+  position: fixed;
+  inset: auto 1rem 1rem auto;
+}
+
+.version_component {
+  grid-column-gap: .75rem;
+  grid-row-gap: .75rem;
+  color: #888;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  font-size: .7rem;
+  display: flex;
+}
+
+.version_breakpoint {
+  background-color: #ffffff0a;
+  border-radius: .25rem;
+  padding: .05rem .25rem;
+  font-size: .65rem;
+  display: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.version_breakpoint.is-desktop {
+  color: #ccc;
+  background-color: #ffffff1f;
+  display: block;
+}
+
+.version_label {
+  background-color: #ffffff0a;
+  border-radius: .25rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: .05rem .25rem;
+  font-size: .65rem;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 1440px) {
+  .version_breakpoint.is-1440 {
+    color: #ccc;
+    background-color: #ffffff1f;
+    display: block;
+  }
+  .version_breakpoint.is-desktop {
+    color: #888;
+    background-color: #ffffff0a;
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .version_breakpoint.is-1440 {
+    color: #888;
+    background-color: #ffffff0a;
+    display: none;
+  }
+  .version_breakpoint.is-1920 {
+    color: #ccc;
+    background-color: #ffffff1f;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .version_breakpoint.is-desktop {
+    color: #888;
+    background-color: #ffffff0a;
+    display: none;
+  }
+  .version_component {
+    grid-column-gap: .5rem;
+    grid-row-gap: .5rem;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  .version_breakpoint.is-tablet {
+    color: #ccc;
+    background-color: #ffffff1f;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .version_block {
+    font-size: .65rem;
+  }
+  .version_breakpoint {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: .6rem;
+  }
+  .version_breakpoint.is-mobile-landscape {
+    color: #ccc;
+    background-color: #ffffff1f;
+    display: block;
+  }
+  .version_breakpoint.is-tablet {
+    color: #888;
+    background-color: #ffffff0a;
+    display: none;
+  }
+  .version_label {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: .6rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .version_breakpoint.is-mobile-landscape {
+    color: #888;
+    background-color: #ffffff0a;
+    display: none;
+  }
+  .version_breakpoint.is-mobile {
+    color: #ccc;
+    background-color: #ffffff1f;
+    display: block;
+  }
+}
+
+#user-agent {
+  max-width: 38ch;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
