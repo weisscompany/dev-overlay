@@ -21,10 +21,6 @@ var overlayHTML = `
       <div class="version_label"><div id="loading-time">0.000</div><div>s</div></div>
     </div>
     <div class="version_block">
-      <div>Version:</div>
-      <div class="version_label"><div>v1.0.0</div></div>
-    </div>
-    <div class="version_block">
       <div>Timestamp:</div>
       <div class="version_label"><div id="version-time">Timestamp</div></div>
     </div>
