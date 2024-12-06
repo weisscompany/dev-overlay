@@ -35,22 +35,13 @@ var overlayHTML = `
 </div>`;
 document.body.insertAdjacentHTML("beforeend", overlayHTML);
 
-// JavaScript Logic
 function updateOverlayValues() {
   // Calculate load time
-  if (window.performance && window.performance.timing) {
-    var loadTime =
-      (window.performance.timing.domContentLoadedEventEnd -
-        window.performance.timing.navigationStart) /
-      1000;
-    document.getElementById("loading-time").innerText = loadTime.toFixed(3);
-  } else {
-    document.getElementById("loading-time").innerText = "N/A";
-  }
+  var loadTime = (window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart) / 1000;
+  document.getElementById("loading-time").innerText = loadTime.toFixed(3);
 
   // Set user agent
-  var userAgent = navigator.userAgent || "Unavailable";
-  document.getElementById("user-agent").innerText = userAgent;
+  document.getElementById("user-agent").innerText = navigator.userAgent;
 
   // Set current time
   var n = new Date(),
@@ -62,15 +53,8 @@ function updateOverlayValues() {
   document.getElementById("version-time").innerText = `${d}.${m}.${y} ${h}:${min} Uhr`;
 }
 
-// Ensure overlay updates after HTML is injected
-function ensureOverlayWorks() {
-  if (document.getElementById("loading-time")) {
-    updateOverlayValues();
-  } else {
-    // Retry after a short delay for DOM availability
-    setTimeout(ensureOverlayWorks, 50);
-  }
-}
-
-// Run updates after DOM is ready
-document.addEventListener("DOMContentLoaded", ensureOverlayWorks);
+// Run updates after ensuring DOM is ready
+document.addEventListener("DOMContentLoaded", function () {
+  // Ensure the overlay has been injected before updating values
+  setTimeout(updateOverlayValues, 0);
+});
