@@ -1,6 +1,6 @@
 var cssLink = document.createElement("link");
 cssLink.rel = "stylesheet";
-cssLink.href = "https://cdn.jsdelivr.net/gh/weisscompany/dev-overlay/styles.css";
+cssLink.href = "https://cdn.jsdelivr.net/gh/weisscompany/dev-overlay@latest/styles.css";
 document.head.appendChild(cssLink);
 
 if (!document.querySelector('.dev-overlay')) {
